@@ -90,7 +90,45 @@
               <expectedResult>failure</expectedResult>
             </configuration>
           </execution>
-          <!-- TODO: test nonexistent test; add support for "allow missing" flag -->
+          <execution>
+            <id>cmake-return-test</id>
+            <phase>test</phase>
+            <goals><goal>test</goal></goals>
+            <configuration>
+              <binary>${project.build.directory}/output/returnTest</binary>
+              <results>${project.build.directory}/results</results>
+              <testName>myReturnTest</testName>
+              <args>
+                  <arg1>2</arg1>
+              </args>
+              <expectedResult>failure</expectedResult>
+            </configuration>
+          </execution>
+          <execution>
+            <id>cmake-skipped-test</id>
+            <phase>test</phase>
+            <goals><goal>test</goal></goals>
+            <configuration>
+              <binary>${project.build.directory}/output/returnTest</binary>
+              <results>${project.build.directory}/results</results>
+              <testName>mySkippedTest</testName>
+              <preconditions>
+                <precondition1>true</precondition1>
+                <precondition2>false</precondition2>
+              </preconditions>
+            </configuration>
+          </execution>
+          <execution>
+            <id>cmake-missing-test</id>
+            <phase>test</phase>
+            <goals><goal>test</goal></goals>
+            <configuration>
+              <binary>${project.build.directory}/output/missingTest</binary>
+              <results>${project.build.directory}/results</results>
+              <testName>myMissingTest</testName>
+              <skipIfMissing>true</skipIfMissing>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
