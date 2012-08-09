@@ -57,7 +57,7 @@
             <phase>compile</phase>
             <goals><goal>compile</goal></goals>
             <configuration>
-              <target>${project.build.directory}/output</target>
+              <target>all</target>
               <output>${project.build.directory}/output</output>
             </configuration>
           </execution>
