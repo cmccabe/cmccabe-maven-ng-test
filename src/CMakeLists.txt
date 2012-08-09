@@ -27,3 +27,4 @@ endif(TEST_CMAKE_VAR EQUAL "FOOBAR")
 
 add_executable(passingTest passingTest.c common.c)
 add_executable(sleepTest sleepTest.c common.c)
+add_executable(returnTest returnTest.c common.c)
