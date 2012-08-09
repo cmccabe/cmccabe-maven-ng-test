@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.maven.plugin.cmake.ng</groupId>
-  <artifactId>cmake-ng</artifactId>
-  <packaging>maven-plugin</packaging>
+  <artifactId>cmake-ng-test</artifactId>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>cmake-ng Maven Mojo</name>
+  <name>cmake-ng test</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
