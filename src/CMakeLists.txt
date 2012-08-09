@@ -21,5 +21,9 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -O2")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_REENTRANT -D_FILE_OFFSET_BITS=64")
 
+if(TEST_CMAKE_VAR EQUAL "FOOBAR")
+  message(FATAL_ERROR "Must set TEST_CMAKE_VAR to FOOBAR!")
+endif(TEST_CMAKE_VAR EQUAL "FOOBAR")
+
 add_executable(passingTest passingTest.c common.c)
 add_executable(sleepTest sleepTest.c common.c)
