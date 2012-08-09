@@ -67,10 +67,12 @@
             <goals><goal>test</goal></goals>
             <configuration>
               <binary>${project.build.directory}/output/passingTest</binary>
-              <args>arg1</args>
-              <args>arg2</args>
+              <args>
+                  <arg1>arg1</arg1>
+                  <arg2>arg2</arg2>
+              </args>
               <timeout>120</timeout>
-              <results>${project.build.directory}/results/passingTest.txt</results>
+              <results>${project.build.directory}/results</results>
             </configuration>
           </execution>
           <execution>
@@ -80,11 +82,12 @@
             <configuration>
               <binary>${project.build.directory}/output/sleepTest</binary>
               <testName>myFailingTest</testName>
-              <results>${project.build.directory}/results/passingTest.txt</results>
+              <results>${project.build.directory}/results</results>
               <timeout>1</timeout>
               <env>
                 <TEST_SLEEP>100</TEST_SLEEP>
               </env>
+              <expectedResult>failure</expectedResult>
             </configuration>
           </execution>
           <!-- TODO: test nonexistent test; add support for "allow missing" flag -->
