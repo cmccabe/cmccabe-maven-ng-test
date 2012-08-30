@@ -49,6 +49,7 @@
               </env>
               <vars>
                 <TEST_CMAKE_VAR>FOOBAZ</TEST_CMAKE_VAR>
+                <FAIL_THE_BUILD>${do.not.set.this.maven.system.variable}</FAIL_THE_BUILD>
               </vars>
             </configuration>
           </execution>
@@ -73,6 +74,11 @@
               </args>
               <timeout>120</timeout>
               <results>${project.build.directory}/results</results>
+              <preconditions>
+                <and>true</and>
+                <andnot>false</andnot>
+                <and>true</and>
+              </preconditions> -->
             </configuration>
           </execution>
           <execution>
@@ -88,6 +94,9 @@
                 <TEST_SLEEP>100</TEST_SLEEP>
               </env>
               <expectedResult>failure</expectedResult>
+              <preconditions>
+                <andnot>${you.must.not.set.this.maven.system.variable.i.beg.of.you}</andnot>
+              </preconditions>
             </configuration>
           </execution>
           <execution>
@@ -113,8 +122,24 @@
               <results>${project.build.directory}/results</results>
               <testName>mySkippedTest</testName>
               <preconditions>
-                <precondition1>true</precondition1>
-                <precondition2>false</precondition2>
+                <and>true</and>
+                <andnot>true</andnot>
+              </preconditions>
+            </configuration>
+          </execution>
+          <execution>
+            <id>cmake-skipped-test2</id>
+            <phase>test</phase>
+            <goals><goal>test</goal></goals>
+            <configuration>
+              <binary>${project.build.directory}/output/returnTest</binary>
+              <results>${project.build.directory}/results</results>
+              <testName>mySkippedTest2</testName>
+              <preconditions>
+                <and>true</and>
+                <andnot>false</andnot>
+                <andnot>false</andnot>
+                <and>${you.must.not.set.this.maven.system.variable.i.beg.of.you}</and>
               </preconditions>
             </configuration>
           </execution>

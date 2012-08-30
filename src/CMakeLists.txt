@@ -22,6 +22,11 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -O2")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_REENTRANT -D_FILE_OFFSET_BITS=64")
 
 message("WATERMELON TEST_CMAKE_VAR = ${TEST_CMAKE_VAR}")
+
+if(FAIL_THE_BUILD)
+    message(FATAL_ERROR "Failing the build because FAIL_THE_BUILD was set!")
+endif()
+
 if("${TEST_CMAKE_VAR}" STREQUAL "FOOBAZ")
 else()
   message(FATAL_ERROR "Must set TEST_CMAKE_VAR to FOOBAZ")
