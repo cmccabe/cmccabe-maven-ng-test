@@ -76,7 +76,7 @@
               <results>${project.build.directory}/results</results>
               <preconditions>
                 <and>true</and>
-                <andnot>false</andnot>
+                <andNot>false</andNot>
                 <and>true</and>
               </preconditions> -->
             </configuration>
@@ -95,7 +95,7 @@
               </env>
               <expectedResult>failure</expectedResult>
               <preconditions>
-                <andnot>${you.must.not.set.this.maven.system.variable.i.beg.of.you}</andnot>
+                <andNot>${you.must.not.set.this.maven.system.variable.i.beg.of.you}</andNot>
               </preconditions>
             </configuration>
           </execution>
@@ -123,7 +123,7 @@
               <testName>mySkippedTest</testName>
               <preconditions>
                 <and>true</and>
-                <andnot>true</andnot>
+                <andNot>true</andNot>
               </preconditions>
             </configuration>
           </execution>
@@ -137,8 +137,8 @@
               <testName>mySkippedTest2</testName>
               <preconditions>
                 <and>true</and>
-                <andnot>false</andnot>
-                <andnot>false</andnot>
+                <andNot>false</andNot>
+                <andNot>false</andNot>
                 <and>${you.must.not.set.this.maven.system.variable.i.beg.of.you}</and>
               </preconditions>
             </configuration>
