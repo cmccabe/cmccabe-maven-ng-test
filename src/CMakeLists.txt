@@ -21,7 +21,11 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -O2")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_REENTRANT -D_FILE_OFFSET_BITS=64")
 
-message("WATERMELON TEST_CMAKE_VAR = ${TEST_CMAKE_VAR}")
+# Generate a lot of output, to make sure that the cmake-ng plugin won't block
+# forever when the pipe's output buffer fills up. 
+foreach(cnt RANGE 8000 1)
+    message(STATUS "=============== FOREACH LOOP ITERATION NUMBER ${cnt}")
+endforeach(cnt RANGE 8000 1)
 
 if(FAIL_THE_BUILD)
     message(FATAL_ERROR "Failing the build because FAIL_THE_BUILD was set!")
