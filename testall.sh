@@ -7,6 +7,10 @@ die() {
 
 rm -rf ./target/*
 rm -rf ./mvn_output.txt
+mvn clean
+mkdir -p ./target/
+mvn clean
+[ -d ./target ] && die "mvn clean did not remove target directory!"
 mvn install -X -e -DskipTests &> ./mvn_output.txt
 grep -q 'warning: ignoring return value' ./mvn_output.txt
 
